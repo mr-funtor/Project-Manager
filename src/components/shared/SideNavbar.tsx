@@ -3,7 +3,7 @@ import { mainRoutes } from "@/routes/mainRoutes";
 
 
 const styles ={
-  container:`h-full w-58 bg-dark-light-background border-r border-gray-400/40  px-6 py-10 text-white fixed top-0`,
+  container:`h-full w-58 bg-dark-light-background border-r border-gray-400  px-6 py-10 text-white fixed top-0`,
   logoHeroContainer:`h-7 w-28 `,
   navItems:`flex mt-2 pl-5 py-2 cursor-pointer`,
   frontMarking:`border-l-4 border-gray-400`,

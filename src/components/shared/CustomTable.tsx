@@ -27,7 +27,7 @@ const CustomTable = <K extends unknown>({data, columns}:CustomTableProps<K>) => 
                     headerGroup.headers.map(header =>(
                       <th style={{
                         width: header.getSize(),
-                      }} key={header.id} className="px-4 py-2 font-medium text-gray-300 text-sm text-left uppercase">
+                      }} key={header.id} className="px-4 py-2 font-medium text-black text-sm text-left uppercase bg-gray-200/80">
                         {
                           flexRender(
                             header.column.columnDef.header,

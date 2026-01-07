@@ -8,9 +8,9 @@ const TopHeader = ({heading, subHeading}:TopHeaderProps) => {
   return (
     <header className="flex items-center justify-between p-6  border-b border-gray-400 sticky top-0 z-10">
       <div>
-        <h2 className="text-2xl font-bold text-black">
+        <h1 className="text-2xl font-bold text-black">
           {heading}
-        </h2>
+        </h1>
         <p className="text-sm text-gray-600 mt-1">
           {subHeading}
         </p>

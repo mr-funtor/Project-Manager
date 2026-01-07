@@ -1,4 +1,5 @@
 import TopHeader from "@/components/shared/TopHeader"
+import ProjectsFeature from "@/features/Projects/components/ProjectsFeature"
 
 const ProjectsPage = () => {
   return(
@@ -7,6 +8,8 @@ const ProjectsPage = () => {
         heading="Projects"
         subHeading="Track project milestones, task completion, and deadline adherence"
       />
+
+      <ProjectsFeature/>
     </main>
   )
 }
