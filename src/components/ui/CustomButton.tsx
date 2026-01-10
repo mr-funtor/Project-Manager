@@ -2,9 +2,9 @@ import { cn } from "@/lib/utils";
 
 
 const styles={
-  btnBody:`flex justify-center items-center bg-keystonePrimaryBlue w-full h-12 text-white rounded-md cursor-pointer`,
+  btnBody:`flex justify-center items-center bg-gray-400 w-full h-12 text-white rounded-md cursor-pointer`,
   btnBody2:`h-12 text-white flex justify-center items-center`,
-  textStyle:`text-white text-lg font-bold`
+  textStyle:`text-black text-lg font-bold`
 }
 
 type CustomButtonProps = {

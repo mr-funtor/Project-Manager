@@ -1,6 +1,12 @@
-import { FaPlus, FaRocket } from "react-icons/fa"
+import { FaPlus, FaRocket } from "react-icons/fa";
 
-const NewProjectComp = () => {
+type NewEntityCompProps = {
+  heading: string,
+  subheading: string,
+  buttonText: string,
+}
+
+const NewEntityComp = ({heading, subheading, buttonText}:NewEntityCompProps) => {
   return(
     <section className="flex justify-between items-center bg-gray-200/80 p-4 rounded-lg">
       <div className="flex items-center">
@@ -8,17 +14,18 @@ const NewProjectComp = () => {
           <FaPlus />
         </span>
         <div>
-          <p className="font-bold">Start New Project</p>
-          <p className="text-sm">Create and configure next project</p>
+          <p className="font-bold">{heading}</p>
+          <p className="text-sm">{subheading}</p>
         </div>
       </div>
 
       <div className="cursor-pointer flex items-center bg-gray-400 py-3 px-4 rounded-md">
         <FaRocket/>
-        <p className="ml-2 font-semibold">Create New Project</p>
+        <p className="ml-2 font-semibold">{buttonText}</p>
       </div>
+
     </section>
   )
 }
 
-export default NewProjectComp
+export default NewEntityComp

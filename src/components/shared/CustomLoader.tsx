@@ -1,4 +1,4 @@
-import { KeystoneLogoRound } from "../../constants/images";
+
 import { useEffect, useState } from "react";
 
 
@@ -21,11 +21,11 @@ const CustomLoader=()=>{
   return(
     <div  className={`fixed inset-0 h-full w-full bg-[rgba(0,0,0,0.7)]
      justify-center items-center z-20 ${isLoaderShowing ? "flex " : "hidden"}`}data-testid="screen-loader">
-      <img 
+      {/* <img 
         src={KeystoneLogoRound} 
         alt="keystone bank loading logo"
         className="h-14 animate-spin"
-      />
+      /> */}
     </div>
   )
 }

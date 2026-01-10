@@ -3,12 +3,12 @@ import { useState } from "react"
 
 
 const styles={
-	container:`border-2 border-grey-300 rounded-md flex items-center h-12 overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20`,
-	mainInput:`block  w-full h-full rounded-sm outline-none pl-2 text-white text-md placeholder-white/50`,
+	container:`rounded-md flex items-center h-12 overflow-hidden bg-white/10 border border-gray-400`,
+	mainInput:`block  w-full h-full rounded-sm outline-none pl-2 text-black text-md placeholder-gray-400`,
 	errorMsg:`text-xs text-keystoneError`,
 	dangerBorder:`border-keystoneError`,
 	blueBorder:`border-keystonePrimaryBlue`,
-	labelStyle:`text-white text-sm mb-1 inline-block font-medium`,
+	labelStyle:`text-black text-sm mb-1 inline-block font-medium`,
 }
 
 // NB

@@ -1,5 +1,5 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router"
-import { ProjectsPage } from "../pages"
+import { DepartmentPage, NewProjectPage, ProjectsPage, TeamsPage } from "../pages"
 import AppLayout from "@/layouts/AppLayout"
 
 const AppRoutes = () => {
@@ -8,6 +8,9 @@ const AppRoutes = () => {
       <Routes>
         <Route element={<AppLayout/>}>
           <Route path="projects" element={<ProjectsPage/>}/>
+          <Route path="new-project" element={<NewProjectPage/>}/>
+          <Route path="team-management" element={<TeamsPage/>}/>
+          <Route path="department-management" element={<DepartmentPage/>}/>
         </Route>
       </Routes>
     </Router>

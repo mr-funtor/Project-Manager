@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import type { ChangeEvent } from "react";
 
 const styles={
-	mainInput:`w-full border border-white/20 rounded-md flex items-center bg-white/10 backdrop-blur-sm h-12 invalid:text-gray-400 text-white text-md`,
+	mainInput:`w-full border border-gray-400 rounded-md flex items-center bg-white/10 backdrop-blur-sm h-12 invalid:text-gray-400 text-gray-400 text-md`,
 }
 
 interface CustomSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
@@ -38,7 +38,7 @@ const CustomSelect = forwardRef<HTMLSelectElement, CustomSelectProps>((props, re
       <div className="flex justify-between">
         {
           labelText && (
-            <label htmlFor={name} className="text-white text-sm mb-1 inline-block font-medium">
+            <label htmlFor={name} className="text-black text-sm mb-1 inline-block font-medium">
               {labelText}
               {compulsoryField && <span className="text-red-400">*</span>}
             </label>
@@ -54,7 +54,7 @@ const CustomSelect = forwardRef<HTMLSelectElement, CustomSelectProps>((props, re
         className={inputClasses}
       >
         
-        <option value="" disabled selected hidden>
+        <option value="" disabled selected hidden className="text-gray-500">
           {placeholder || "Select an option"}
         </option>
 

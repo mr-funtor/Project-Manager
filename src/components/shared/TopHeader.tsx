@@ -6,7 +6,7 @@ type TopHeaderProps = {
 
 const TopHeader = ({heading, subHeading}:TopHeaderProps) => {
   return (
-    <header className="flex items-center justify-between p-6  border-b border-gray-400 sticky top-0 z-10">
+    <header className="bg-white flex items-center justify-between p-6  border-b border-gray-400 sticky top-0 z-10">
       <div>
         <h1 className="text-2xl font-bold text-black">
           {heading}
