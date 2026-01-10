@@ -50,7 +50,7 @@ const CustomTable = <K extends unknown>({data, columns}:CustomTableProps<K>) => 
                 <tr key={row.id} >
                   {
                     row.getVisibleCells().map(cell =>(
-                      <td key={cell.id} className="px-4 py-2 border-b border-b-slate-300 text-white">
+                      <td key={cell.id} className="px-4 py-2 border-b border-b-slate-300 text-black">
                         {
                           flexRender(
                             cell.column.columnDef.cell,

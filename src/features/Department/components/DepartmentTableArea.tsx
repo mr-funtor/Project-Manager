@@ -2,25 +2,30 @@ import CustomTable from "@/components/shared/CustomTable";
 import type { ColumnDef } from "@tanstack/react-table";
 import { useMemo } from "react";
 
-const DepartmentTableArea = () => {
+// logic
+import useDepartmentTableService from "../services/useDepartmentTableService";
+import type { DepartmentResponse } from "@/types/department-types";
 
-  const columns: ColumnDef<{}, any>[] = useMemo(() => {
+const DepartmentTableArea = () => {
+  const { fetchedData } = useDepartmentTableService()
+
+  const columns: ColumnDef<DepartmentResponse, any>[] = useMemo(() => {
     return [
       {
         header: "Department Name",
-        accessorKey: "requestId",
+        accessorKey: "name",
       },
-      {
-        header: "Actions",
-        cell: () => (
-          <button
-            onClick={()=> null}
-            className="text-blue-600 hover:text-blue-800 font-medium"
-          >
-            View Details
-          </button>
-        ),
-      },
+      // {
+      //   header: "Actions",
+      //   cell: () => (
+      //     <button
+      //       onClick={()=> null}
+      //       className="text-blue-600 hover:text-blue-800 font-medium"
+      //     >
+      //       View Details
+      //     </button>
+      //   ),
+      // },
     ];
   }, []);
 
@@ -33,7 +38,7 @@ const DepartmentTableArea = () => {
 
       <CustomTable
         columns={columns}
-        data={[]}
+        data={fetchedData}
       />
 
     </section>

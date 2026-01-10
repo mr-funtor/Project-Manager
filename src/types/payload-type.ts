@@ -8,7 +8,9 @@ export type examplePayloadType ={
 
 export type ApiResponse<T> = {
   message: string,
-  code: number,
+  status: number,
+  isSuccessful: boolean,
+  errors?: string[],
   data: T
 };
 
