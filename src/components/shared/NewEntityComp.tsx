@@ -4,9 +4,10 @@ type NewEntityCompProps = {
   heading: string,
   subheading: string,
   buttonText: string,
+  onButtonClicked?: ()=>void, 
 }
 
-const NewEntityComp = ({heading, subheading, buttonText}:NewEntityCompProps) => {
+const NewEntityComp = ({heading, subheading, buttonText, onButtonClicked}:NewEntityCompProps) => {
   return(
     <section className="flex justify-between items-center bg-gray-200/80 p-4 rounded-lg">
       <div className="flex items-center">
@@ -19,10 +20,10 @@ const NewEntityComp = ({heading, subheading, buttonText}:NewEntityCompProps) => 
         </div>
       </div>
 
-      <div className="cursor-pointer flex items-center bg-gray-400 py-3 px-4 rounded-md">
+      <button onClick={onButtonClicked ? onButtonClicked : ()=>null} className="cursor-pointer flex items-center bg-gray-400 py-3 px-4 rounded-md">
         <FaRocket/>
         <p className="ml-2 font-semibold">{buttonText}</p>
-      </div>
+      </button>
 
     </section>
   )
