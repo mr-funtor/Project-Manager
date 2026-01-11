@@ -1,16 +1,17 @@
 import { useEffect, useReducer } from "react";
-import Emitter from "@/classes/Emitter";
 
 // Api/Data
-import { createDepartmentAxios } from "@/api/axios/departmentAxios";
+import { useCreateDepartmentAxios } from "@/api/queries/departmentAxios";
+
 
 // components
 import { LoaderInit } from "@/components/shared/CustomLoader";
 import { ToastInit } from "@/components/shared/CustomToast";
 
 // types
-import type { CreateDepartmentPayloadType } from "@/types/department-types";
 import type { StateUnion } from "@/types/other-types";
+import type { CreateDepartmentPayloadType } from "@/types/department-types";
+import { isAxiosError } from "axios";
 
 const initialState = {
   isCreatingNewDepartment: false,
@@ -21,7 +22,7 @@ type DispatchType = StateUnion<typeof initialState>
 
 const useDepartmentFeatureService = () => {
   const [state, dispatch] = useReducer((oldValues, newValues:DispatchType)=>({...oldValues, ...newValues}), initialState)
-  const { mutate, isPending } = createDepartmentAxios<CreateDepartmentPayloadType>();
+  const { mutate, isPending } = useCreateDepartmentAxios<CreateDepartmentPayloadType, CreateDepartmentPayloadType>();
 
   function createNewDepartment (){
     const payload = {
@@ -32,10 +33,22 @@ const useDepartmentFeatureService = () => {
       onSuccess:()=>{
         ToastInit.openToast("Department created successfully");
         dispatch({isCreatingNewDepartment: false});
-        Emitter.dispatchEmitter("REFRESH_DEPARTMENTS")
       },
-      onError:()=>{
-        ToastInit.openToast("Department created failed","error")
+      onError:(error)=>{
+        if (isAxiosError(error)) {
+          const theError = error;
+  
+          if (theError.response && theError.response.data) {
+            ToastInit.openToast(
+              theError?.response?.data?.errors[0] || theError?.response?.data?.message || "Department creation failed",
+              "error"
+            );
+          } else {
+            ToastInit.openToast("Department creation failed","error")
+          }
+        } else {
+          ToastInit.openToast("Department creation failed","error")
+        }
       }
     })
   }

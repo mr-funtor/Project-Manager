@@ -8,7 +8,7 @@ const styles={
 }
 
 type CustomButtonProps = {
-  onClick : React.MouseEventHandler,
+  onClick ?: React.MouseEventHandler,
   containerStyle?: string,
   buttonText: string,
   type?: "submit" | "reset" | "button",

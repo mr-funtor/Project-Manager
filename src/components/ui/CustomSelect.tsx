@@ -3,7 +3,7 @@ import { forwardRef } from "react";
 import type { ChangeEvent } from "react";
 
 const styles={
-	mainInput:`w-full border border-gray-400 rounded-md flex items-center bg-white/10 backdrop-blur-sm h-12 invalid:text-gray-400 text-gray-400 text-md`,
+	mainInput:`w-full border border-gray-400 rounded-md flex items-center bg-white/10 backdrop-blur-sm h-12 invalid:text-gray-400 text-black text-md`,
 }
 
 interface CustomSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {

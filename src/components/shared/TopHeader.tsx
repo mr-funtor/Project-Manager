@@ -16,12 +16,12 @@ const TopHeader = ({heading, subHeading}:TopHeaderProps) => {
         </p>
       </div>
 
-      <div className="flex items-center gap-3">
+      {/* <div className="flex items-center gap-3">
         <div className="text-sm text-right">
-          <p className="font-semibold text-white">John Adebayo</p>
+          <p className="font-semibold text-black">John Adebayo</p>
           <p className="text-xs text-gray-400">xxxInitiator</p>
         </div>
-      </div>
+      </div> */}
     </header>
   );
 };

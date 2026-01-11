@@ -4,10 +4,11 @@ import type { ColumnDef } from "@tanstack/react-table"
 
 type CustomTableProps<K> = {
   data: K[],
-  columns: ColumnDef<K, any>[]
+  columns: ColumnDef<K, any>[],
+  isLoadingData ?: boolean
 }
 
-const CustomTable = <K extends unknown>({data, columns}:CustomTableProps<K>) => {
+const CustomTable = <K extends unknown>({data, columns, isLoadingData}:CustomTableProps<K>) => {
 
   const {getHeaderGroups, getRowModel} = useReactTable({
     columns, 
@@ -17,6 +18,8 @@ const CustomTable = <K extends unknown>({data, columns}:CustomTableProps<K>) => 
 
   return(
     <div >
+      {isLoadingData && <h2 className="w-full font-bold text-center py-5">Fetching Data</h2> }
+
       <table className="w-full rounded-lg">
         <thead className="border-b border-gray-500">
           {
@@ -66,6 +69,8 @@ const CustomTable = <K extends unknown>({data, columns}:CustomTableProps<K>) => 
           }
         </tbody>
       </table>
+
+      {data.length <= 0 && <h2 className="w-full font-bold text-center py-5">No data found</h2> }
 
     </div>
   )

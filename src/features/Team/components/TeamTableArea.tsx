@@ -2,33 +2,38 @@ import CustomTable from "@/components/shared/CustomTable";
 import type { ColumnDef } from "@tanstack/react-table";
 import { useMemo } from "react";
 
-const TeamTableArea = () => {
+// logic
+import useTeamTableService from "../services/useTeamTableService";
+import type { TeamMemberType } from "@/types/team-types";
 
-  const columns: ColumnDef<{}, any>[] = useMemo(() => {
+const TeamTableArea = () => {
+  const {fetchedData, isLoading} = useTeamTableService()
+
+  const columns: ColumnDef<TeamMemberType, any>[] = useMemo(() => {
     return [
       {
         header: "First Name",
-        accessorKey: "requestId",
+        accessorKey: "firstName",
       },
       {
         header: "Last Name",
-        accessorKey: "customerName",
+        accessorKey: "lastName",
       },
       {
         header: "Role",
-        accessorKey: "investmentType",
+        accessorKey: "role",
       },
-      {
-        header: "Actions",
-        cell: () => (
-          <button
-            onClick={()=> null}
-            className="text-blue-600 hover:text-blue-800 font-medium"
-          >
-            View Details
-          </button>
-        ),
-      },
+      // {
+      //   header: "Actions",
+      //   cell: () => (
+      //     <button
+      //       onClick={()=> null}
+      //       className="text-blue-600 hover:text-blue-800 font-medium"
+      //     >
+      //       View Details
+      //     </button>
+      //   ),
+      // },
     ];
   }, []);
 
@@ -41,7 +46,8 @@ const TeamTableArea = () => {
 
       <CustomTable
         columns={columns}
-        data={[]}
+        data={fetchedData}
+        isLoadingData={isLoading}
       />
     </section>
   )

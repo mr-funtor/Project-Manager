@@ -1,17 +1,10 @@
-import { getAllDepartmentsAxios } from "@/api/axios/departmentAxios"
-import Emitter from "@/classes/Emitter";
+
+import { useGetAllDepartmentsAxios } from "@/api/queries/departmentAxios";
 import type { DepartmentResponse } from "@/types/department-types";
 import type { ApiResponse } from "@/types/payload-type";
-import { useEffect } from "react";
 
 const useDepartmentTableService = () => {
-  const {data, refetch} = getAllDepartmentsAxios<ApiResponse<DepartmentResponse[]>>();
-
-  useEffect(()=>{
-    const unsubscribe = Emitter.addEmitter("REFRESH_DEPARTMENTS",refetch);
-
-    return ()=> unsubscribe();
-  },[])
+  const { data } = useGetAllDepartmentsAxios<ApiResponse<DepartmentResponse[]>>();
 
   return{
     fetchedData: data?.data || []
