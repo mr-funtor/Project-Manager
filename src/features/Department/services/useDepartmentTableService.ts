@@ -1,10 +1,9 @@
 
 import { useGetAllDepartmentsAxios } from "@/api/queries/departmentAxios";
 import type { DepartmentResponse } from "@/types/department-types";
-import type { ApiResponse } from "@/types/payload-type";
 
 const useDepartmentTableService = () => {
-  const { data } = useGetAllDepartmentsAxios<ApiResponse<DepartmentResponse[]>>();
+  const { data } = useGetAllDepartmentsAxios<DepartmentResponse[]>();
 
   return{
     fetchedData: data?.data || []

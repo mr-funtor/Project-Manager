@@ -1,38 +1,40 @@
 import CustomTable from "@/components/shared/CustomTable";
 import type { ColumnDef } from "@tanstack/react-table";
 import { useMemo } from "react";
+import useProjectsTableService from "../services/useProjectsTableService";
 
 const ProjectsTableArea = () => {
+  const { fetchedData , isLoading} = useProjectsTableService()
 
   const columns: ColumnDef<{}, any>[] = useMemo(() => {
     return [
       {
         header: "Project Name",
-        accessorKey: "requestId",
+        accessorKey: "name",
       },
       {
         header: "Department",
-        accessorKey: "customerName",
+        accessorKey: "department",
       },
       {
         header: "Manager",
-        accessorKey: "investmentType",
+        accessorKey: "projectManager",
       },
       {
         header: "Deadline",
-        accessorKey: "dateSubmitted",
+        accessorKey: "endDate",
       },
-      {
-        header: "Actions",
-        cell: () => (
-          <button
-            onClick={()=> null}
-            className="text-blue-600 hover:text-blue-800 font-medium"
-          >
-            View Details
-          </button>
-        ),
-      },
+      // {
+      //   header: "Actions",
+      //   cell: () => (
+      //     <button
+      //       onClick={()=> null}
+      //       className="text-blue-600 hover:text-blue-800 font-medium"
+      //     >
+      //       View Details
+      //     </button>
+      //   ),
+      // },
     ];
   }, []);
 
@@ -45,7 +47,8 @@ const ProjectsTableArea = () => {
 
       <CustomTable
         columns={columns}
-        data={[]}
+        data={fetchedData}
+        isLoadingData={isLoading}
       />
     </section>
   )

@@ -1,10 +1,11 @@
 // import { allRoles } from "@/permissions/roles";
 import type { SideNavType } from "@/types/routes-types"
-import { FaBuilding, FaClipboardList, FaPlusCircle, } from "react-icons/fa"
+import { FaBuilding, FaChartArea, FaPlusCircle, } from "react-icons/fa"
 import { FaUserTie } from "react-icons/fa6"
 
 
 const mainRoutes : SideNavType[] = [
+  { name:'Dashboard' ,  navigateTo:'/', icon: FaChartArea, permittedRoles: ['all'] },
   { name:'Projects' ,  navigateTo:'/projects', icon: FaPlusCircle, permittedRoles: ['all'] },
   // { name:'My Requests' ,  navigateTo:'branch-open-requests', icon: FaClipboardList, permittedRoles: ['all'] },
   // { name:'Dashboard' ,  navigateTo: 'wealth-dashboard', icon: FaChartPie, permittedRoles: ['all'] },

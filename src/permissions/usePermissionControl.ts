@@ -1,20 +1,20 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
+// import { useSelector } from "react-redux";
+// import { type RootState } from "../redux/store";
 
 
-function usePermissionControl(){
-  const userRole = useSelector((state:RootState)=> state.auth.userRole);
+// function usePermissionControl(){
+//   const userRole = useSelector((state:RootState)=> state.auth.userRole);
 
 
-  function hasPermission(permittedRoles:string[]): boolean{
-    if(!userRole) return false;
+//   function hasPermission(permittedRoles:string[]): boolean{
+//     if(!userRole) return false;
 
-    return permittedRoles.includes(userRole)
-  }
+//     return permittedRoles.includes(userRole)
+//   }
 
-  return {
-    hasPermission
-  }
-}
+//   return {
+//     hasPermission
+//   }
+// }
 
-export default usePermissionControl
+// export default usePermissionControl

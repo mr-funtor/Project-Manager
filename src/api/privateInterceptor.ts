@@ -1,5 +1,4 @@
-import { getToken } from "@/utils/tokenUtils";
-import { AxiosInstance } from "axios";
+import { type AxiosInstance } from "axios";
 
 const privateInterceptor = (
   privateInstance: AxiosInstance
@@ -7,11 +6,7 @@ const privateInterceptor = (
   privateInstance.interceptors.request.use(
     async (request) => {
 			
-			const accessToken = await getToken();
-
-			if (accessToken) {
-				request.headers['Authorization'] = `Bearer ${accessToken}`;
-			}
+		
 
       return request;
     },

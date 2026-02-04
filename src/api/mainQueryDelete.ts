@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query'
-import type { ApiResponse } from '@/types/payloads-types'; 
 import { privateAccess } from './api';
-import { AxiosError, AxiosRequestConfig } from 'axios';
+import { AxiosError, type AxiosRequestConfig } from 'axios';
+import type { ApiResponse } from '@/types/payload-type';
 
 
 const mainQueryDelete = <T>(url:string, queryKey: string[], deleteOptions?: AxiosRequestConfig<any> | undefined)=> {
